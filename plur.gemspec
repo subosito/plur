@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Plur::VERSION
   gem.authors       = ["Alif Rachmawadi"]
   gem.email         = ["subosito@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Quite useful things}
+  gem.summary       = gem.description
+  gem.homepage      = "https://github.com/subosito/plur"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

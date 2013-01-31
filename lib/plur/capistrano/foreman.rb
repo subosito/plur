@@ -15,7 +15,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       set :foreman_log,         'shared_path/log'
       set :foreman_concurrency, false
     DESC
-    task :export, :roles => :app do
+    task :export, roles: :app do
       bundle_cmd          = fetch(:bundle_cmd, "bundle")
       foreman_format      = fetch(:foreman_format, "upstart")
       foreman_location    = fetch(:foreman_location, "/etc/init")

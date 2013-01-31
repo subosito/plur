@@ -3,9 +3,20 @@ require 'active_support'
 
 module Plur
   module Helper
-
     def current_locale
       I18n.locale.to_s
+    end
+
+    def rtl_locales
+      %w(ar ckb fa he ug)
+    end
+
+    def rtl?
+      rtl_locales.include? current_locale
+    end
+
+    def orientation
+      rtl? ? 'rtl' : 'ltr'
     end
 
     def notifications
@@ -37,8 +48,9 @@ module Plur
       classes  = []
       classes << [controller_name, action_name].join('-')
       classes << namespace_name
+      classes << orientation
 
-      { class: classes.join(' ') }
+      { dir: orientation, class: classes.join(' ') }
     end
 
     def build_html(assigns = {}, &block)

@@ -32,8 +32,8 @@ module Plur
           div class: 'notifications' do
             flash.each do |name, msg|
               if msg.is_a? String
-                classes = ['alert', map_classes[name]]
-                div msg, class: classes.join(' ')
+                classes = ['alert', map_classes[name], 'fadeout']
+                div msg, :class => classes.join(' '), 'data-dismiss' => 'alert'
               end
             end
           end

@@ -1,6 +1,6 @@
 Capistrano::Configuration.instance(:must_exist).load do
   namespace :figaro do
-    _cset :figaro_format,  'yaml'
+    _cset :figaro_yaml,    true
     _cset :figaro_symlink, true
     _cset(:figaro_output)  { "#{shared_path}/application.yml" }
     _cset(:figaro_config)  { "#{latest_release}/config/application.yml" }
@@ -8,7 +8,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     task :config, roles: :app do
       figaro_tmpfile = "figaro-#{rails_env}"
 
-      if figaro_format == 'yaml'
+      if figaro_yaml
         figaro_cmd = %Q(Figaro.env("#{rails_env}").to_yaml)
       else
         figaro_cmd = %Q(Figaro.vars("#{rails_env}").split)

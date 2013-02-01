@@ -1,5 +1,2 @@
 require "plur/version"
-require "plur/helper"
-
-module Plur
-end
+require "plur/railtie" if defined?(Rails)

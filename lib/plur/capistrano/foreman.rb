@@ -18,7 +18,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     task :export, roles: :app do
       bundle_cmd          = fetch(:bundle_cmd, "bundle")
       foreman_format      = fetch(:foreman_format, "upstart")
-      foreman_location    = fetch(:foreman_location, "/etc/init")
+      foreman_location    = fetch(:foreman_location, "/etc/init/app")
       foreman_procfile    = fetch(:foreman_procfile, "Procfile")
       foreman_port        = fetch(:foreman_port, 5000)
       foreman_root        = fetch(:foreman_root, current_path)
@@ -35,7 +35,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       args << "-u #{foreman_user}"
       args << "-l #{foreman_log}"
       args << "-c #{foreman_concurrency}" if foreman_concurrency
-      run "cd #{release_path} && #{sudo} #{bundle_cmd} exec foreman export #{args.join(' ')}"
+      run "cd #{release_path} && #{bundle_cmd} exec foreman export #{args.join(' ')}"
     end
   end
 

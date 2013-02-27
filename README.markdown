@@ -2,7 +2,7 @@
 
 Opinionated development workflow and commonly used tools for Ruby on Rails based development.
 
-![Logo](https://raw.github.com/subosito/plur/master/images/slank-plur.png)
+![Logo](https://raw.github.com/subosito/plur/master/images/slank-plur.jpg)
 
 ## Installation
 

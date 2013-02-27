@@ -6,23 +6,23 @@ Opinionated development workflow and commonly used tools for Ruby on Rails based
 
 ## Installation
 
-As usual, add the gem into your Gemfile:
+As usual, add the Plur into your Gemfile:
 
     gem 'plur'
 
 ## Usage
 
-Currently there are two parts on this gem, deployment and helper:
+Currently there are two parts on Plur, deployment and helper:
 
 ### Deployment
 
-If you're using [Capistrano](https://github.com/capistrano/capistrano), [Figaro](https://github.com/laserlemon/figaro), [Foreman](https://github.com/ddollar/foreman), and deploy it into Ubuntu box or any OS that use [Upstart](http://upstart.ubuntu.com), then you're on right track :). Just Add to your `deploy.rb`:
+If you're using [Capistrano](https://github.com/capistrano/capistrano), [Figaro](https://github.com/laserlemon/figaro), [Foreman](https://github.com/ddollar/foreman), and deploy it into Ubuntu box or any OS that use [Upstart](http://upstart.ubuntu.com), then you're on right track :)
 
     # deploy.rb
     require 'plur/capistrano'
 
     #
-    ## default
+    ## Below is the default value, I mean you don't need write these, except you are differ.
     #
 
     # foreman

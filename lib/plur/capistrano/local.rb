@@ -10,7 +10,6 @@ Capistrano::Configuration.instance(:must_exist).load do
     end
   end
 
-  # TODO: allow to turn it off
   namespace :deploy do
     namespace :assets do
       task :precompile, roles: :web, except: { no_release: true } do

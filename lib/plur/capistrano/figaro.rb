@@ -18,11 +18,17 @@ Capistrano::Configuration.instance(:must_exist).load do
       transfer :up, figaro_tmpfile, figaro_output, via: :scp
       run_locally "rm #{figaro_tmpfile}"
     end
+
+    task :config_symlink, roles: :app do
+      run "ln -sf #{figaro_output} #{figaro_config}"
+    end
   end
 
-  after 'deploy:setup', 'figaro:config'
+  after 'deploy:setup' do
+    figaro.config if plur_callback
+  end
 
   after 'deploy:finalize_update' do
-    run "ln -sf #{figaro_output} #{figaro_config}" if figaro_symlink
+    figaro.config_symlink if plur_callback and figaro_symlink
   end
 end

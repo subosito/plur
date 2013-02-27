@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Plur::VERSION
   gem.authors       = ["Alif Rachmawadi"]
   gem.email         = ["subosito@gmail.com"]
-  gem.description   = %q{Quite useful things}
+  gem.description   = %q{Opinionated development workflow and commonly used tools for Ruby on Rails based development.}
   gem.summary       = gem.description
   gem.homepage      = "https://github.com/subosito/plur"
 

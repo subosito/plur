@@ -1,6 +1,6 @@
 Capistrano::Configuration.instance(:must_exist).load do
   namespace :upstart do
-    _cset(:service_name) { "app/#{application}" }
+    _cset(:service_name) { application }
 
     desc "Start the application services"
     task :start, roles: :app do
@@ -18,5 +18,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     end
   end
 
-  after 'deploy:restart', 'upstart:restart'
+  after 'deploy:restart' do
+    upstart.restart if plur_callback
+  end
 end

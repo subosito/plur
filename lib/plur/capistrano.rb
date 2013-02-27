@@ -1,4 +1,8 @@
+# recipes
 require "plur/capistrano/foreman"
 require "plur/capistrano/upstart"
 require "plur/capistrano/figaro"
-require "plur/capistrano/local"
+
+Capistrano::Configuration.instance(:must_exist).load do
+  _cset :plur_callback, true
+end
